@@ -123,7 +123,7 @@ process minimap2 {
     taxonkit \
         --data-dir $taxonomy \
         lineage -c -R taxids.tmp \
-        | awk '$2>0' \
+        | awk '\$2>0' \
         | cut -f 2- | aggregate_lineages.py -p ${sample_id}.minimap2
     """
 }
@@ -202,7 +202,7 @@ process kraken2 {
     taxonkit \
         --data-dir $taxonomy \
         lineage -c -R taxids.tmp \
-        | awk '$2>0' \
+        | awk '\$2>0' \
         | cut -f 2- | aggregate_lineages.py -p ${sample_id}.kraken2
         
     """
