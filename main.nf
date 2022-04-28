@@ -122,8 +122,9 @@ process minimap2 {
     awk -F '\\t' '{print \$3}' ${sample_id}.minimap2.assignments.tsv > taxids.tmp
     taxonkit \
         --data-dir $taxonomy \
-        lineage -R taxids.tmp \
-        | aggregate_lineages.py -p ${sample_id}.minimap2
+        lineage -c -R taxids.tmp \
+        | awk '$2>0' \
+        | cut -f 2- | aggregate_lineages.py -p ${sample_id}.minimap2
     """
 }
 
@@ -198,11 +199,8 @@ process kraken2 {
         --unclassified-out ${sample_id}.kraken2.unclassified.fastq \
         $reads > ${sample_id}.kraken2.assignments.tsv
     awk -F '\\t' '{print \$3}' ${sample_id}.kraken2.assignments.tsv > taxids.tmp
-    #taxonkit \
-    #    --data-dir $taxonomy \
-    #   lineage -R taxids.tmp \
-    #    | aggregate_lineages.py -p ${sample_id}.kraken2
-    taxonkit --data-dir $taxonomy \
+    taxonkit \
+        --data-dir $taxonomy \
         lineage -c -R taxids.tmp \
         | awk '$2>0' \
         | cut -f 2- | aggregate_lineages.py -p ${sample_id}.kraken2
