@@ -160,7 +160,7 @@ process extractMinimap2Reads {
 
 process kraken2 {
     label "wfmetagenomics"
-    cpus 3
+    cpus 1
     input:
         tuple val(sample_id), file(reads)
         file database
@@ -197,7 +197,7 @@ process kraken2 {
         --report ${sample_id}.kraken2_report.txt \
         --classified-out ${sample_id}.kraken2.classified.fastq \
         --unclassified-out ${sample_id}.kraken2.unclassified.fastq \
-        --confidence 1 \
+        --confidence 0.8 \
         $reads > ${sample_id}.kraken2.assignments.tsv
     awk -F '\\t' '{print \$3}' ${sample_id}.kraken2.assignments.tsv > taxids.tmp
     taxonkit \
