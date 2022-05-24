@@ -197,7 +197,7 @@ process kraken2 {
         --report ${sample_id}.kraken2_report.txt \
         --classified-out ${sample_id}.kraken2.classified.fastq \
         --unclassified-out ${sample_id}.kraken2.unclassified.fastq \
-        --confidence 0.01 \
+        --confidence 0.02 \
         $reads > ${sample_id}.kraken2.assignments.tsv
     awk -F '\\t' '{print \$3}' ${sample_id}.kraken2.assignments.tsv > taxids.tmp
     taxonkit \
