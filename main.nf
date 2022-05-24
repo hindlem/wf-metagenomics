@@ -160,7 +160,7 @@ process extractMinimap2Reads {
 
 process kraken2 {
     label "wfmetagenomics"
-    cpus 1
+    cpus 12
     input:
         tuple val(sample_id), file(reads)
         file database
