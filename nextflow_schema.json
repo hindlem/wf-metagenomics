@@ -154,6 +154,11 @@
                     "default": 1000,
                     "description": "Set the length value bracken will use"
                 },
+                "bracken_confidence": {
+                    "type": "float",
+                    "default": 0.015,
+                    "description": "Set the confidence value bracken will use"
+                },
                 "bracken_level": {
                     "type": "string",
                     "default": "S",
