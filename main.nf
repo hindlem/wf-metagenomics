@@ -79,6 +79,11 @@ process combineFilterFastq {
         -s ${sample_id} \
         -r ${sample_id}.stats \
         -x ${directory} > ${sample_id}.fastq
+    if [ ! -s "${sample_id}.fastq" ]  || [ ! -f "${sample_id}.fastq" ] ;then
+    echo "Error: file (${sample_id}.fastq) not created by fastcat or empty.. "
+    exit 7
+    fi   
+        
     """
 }
 
