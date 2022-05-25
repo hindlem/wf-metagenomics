@@ -21,13 +21,13 @@ process unpackDatabase {
         tar xf $database -C database_dir
     elif [ -d $database ]
     then
-        cp -rL $database database_dir/${database}
+        cp -rL $database database_dir/.
     else
         echo "Error: database is neither .tar.gz nor a dir"
         echo "Exiting".
         exit 1
     fi
-    cp -L $kmer_distribution database_dir/${kmer_distribution}
+    cp -L $kmer_distribution database_dir/.
     """
 }
 
