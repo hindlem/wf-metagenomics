@@ -27,7 +27,7 @@ process unpackDatabase {
         echo "Exiting".
         exit 1
     fi
-    cp -L $kmer_distribution database_dir
+    cp $kmer_distribution database_dir
     """
 }
 
