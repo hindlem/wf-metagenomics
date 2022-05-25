@@ -85,7 +85,7 @@ process combineFilterFastq {
 
 process minimap2 {
     label "wfmetagenomics"
-    cpus 1
+    cpus 32
     input:
         tuple val(sample_id), file(reads)
         file reference
@@ -160,7 +160,7 @@ process extractMinimap2Reads {
 
 process kraken2 {
     label "wfmetagenomics"
-    cpus 1
+    cpus 32
     input:
         tuple val(sample_id), file(reads)
         file database
