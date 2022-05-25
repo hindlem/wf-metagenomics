@@ -72,7 +72,7 @@ process combineFilterFastq {
             emit: stats)
     shell:
     """
-    cp -Lr ${directory} ${directory}_cpy
+    cp -Hr ${directory} ${directory}_cpy
     fastcat \
         -a $params.min_len \
         -b $params.max_len \
