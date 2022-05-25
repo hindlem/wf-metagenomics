@@ -21,13 +21,13 @@ process unpackDatabase {
         tar xf $database -C database_dir
     elif [ -d $database ]
     then
-        cp $database database_dir
+        cp -r $database database_dir
     else
         echo "Error: database is neither .tar.gz nor a dir"
         echo "Exiting".
         exit 1
     fi
-    cp $kmer_distribution database_dir
+    cp $kmer_distribution database_dir/.
     """
 }
 
@@ -46,7 +46,7 @@ process unpackTaxonomy {
         tar xf $taxonomy -C taxonomy_dir
     elif [ -d $taxonomy ]
     then
-        cp $taxonomy taxonomy_dir
+        cp -r $taxonomy taxonomy_dir
     else
         echo "Error: taxonomy is neither .tar.gz nor a dir"
         echo "Exiting".
