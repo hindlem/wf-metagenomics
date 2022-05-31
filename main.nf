@@ -31,7 +31,6 @@ process unpackDatabase {
     """
 }
 
-
 process unpackTaxonomy {
     label "wfmetagenomics"
     cpus 1
