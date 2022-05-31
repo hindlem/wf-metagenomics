@@ -27,8 +27,11 @@ def main(
 
         taxid = 0
         if not aln.is_unmapped:
-            taxid = ref2taxid_df.at[aln.reference_name, 'taxid']
-
+            if aln.reference_name in ref2taxid_df.index :
+                taxid = ref2taxid_df.at[aln.reference_name, 'taxid']
+            else:
+                continue
+        
         output_tsv.write(
             '{mapped}\t{queryid}\t{taxid}\t0|{querylen}\n'.format(
                 mapped=mapped, queryid=queryid, taxid=taxid, querylen=querylen
