@@ -259,6 +259,7 @@ process bracken {
         $kraken2_report \
         $params.bracken_length \
         $params.bracken_level \
+        $params.bracken_threshold \
         ${sample_id}.bracken_report.txt
     """
 }
