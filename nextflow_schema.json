@@ -154,6 +154,11 @@
                     "default": 1000,
                     "description": "Set the length value bracken will use"
                 },
+                "bracken_threshold": {
+                    "type": "integer",
+                    "default": 2,
+                    "description": "usual default is 10 for min number of reads for species to count in output"
+                },
                 "kraken2_confidence": {
                     "type": "number",
                     "default": 0.015,
