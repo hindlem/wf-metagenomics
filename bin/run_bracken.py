@@ -14,6 +14,7 @@ def main():
     parser.add_argument('kraken2_report')
     parser.add_argument('bracken_length')
     parser.add_argument('bracken_level')
+    parser.add_argument('bracken_threshold')
     parser.add_argument('output')
     args = parser.parse_args()
 
@@ -34,6 +35,7 @@ def main():
         f'-i {args.kraken2_report} '
         f'-r {args.bracken_length} '
         f'-l {args.bracken_level} '
+        f'-t {args.bracken_threshold} '
         f'-o {args.output}',
         shell=True
     ).wait()
